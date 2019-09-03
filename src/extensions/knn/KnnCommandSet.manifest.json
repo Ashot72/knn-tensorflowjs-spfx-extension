@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/command-set-extension-manifest.schema.json",
+  "id": "2811f00c-8d2f-450d-9e20-7300f0d970e7",
+  "alias": "KnnCommandSet",
+  "componentType": "Extension",
+  "extensionType": "ListViewCommandSet",
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "items": {
+    "knn": {
+      "title": {
+        "default": "KNN"
+      },
+      "iconImageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAA/dEVYdERlc2NyaXB0aW9uAE1vZGVybiBWZWN0b3IgTG9nbyBMZXR0ZXIgSy4gSyBMZXR0ZXIgRGVzaWduIFZlY3RvckZYblcAAAHzSURBVFhH7VVNSxtRFD1xkqjFKkkUxKqbVhdZqIQguHBVV6KgbkTc+wfUpW7srv0J2m27MguNiOIngiVBpcVScKXZKCEYUEQ0fp37MqVL7xMkFObAmTvv3vfmnjf3vhnfI4ESosy1JYMnwBPgCfg/BNh+qWzmqwT4yFWfD9vkBnk0OlIMuEiFw9h04yvk+cKCG3ke6hKUk0EqCdL6QyHjExz2fEQhn0cFY7LzWCKBSH9/MajAy3rA/X2cTE8hv7YOh8lv6Xr/5TNqBwZMTAtrAZLaiURwkUrheOYTAkxeoLNhbAyN4xPFSRZQ/w2lvgFaf10dOs7OsOs4phx3ZLi3F9FkUqZZQ/0GROUDGc9mkWZyESPj6ngcH75/493LoBZwS3Y+3GO/ucmMRVD5uwZE02nsVNfgdHbW+G2hKoFMyC0mcf51Djl2+V/VnVz6g6WRcYHs5liOrA1Ub0Aeev3zAFkmd3h/T3YxWWZy0oijBvhpf8VivNpB3YTyAaqklVJ0XVwi8LbK+HeD7IbCnREhRzGamOdRHDQxDdQ9IDu/IeOZDPLLS8YnaD/8bUQJ5FT8GRwqDpRQC7gi27a2cNTXh9zcv4Z709qK+uFhXHP3IlCO5V5Li4lpoG5C2+bSrlE3oS20a9QleC14AjwBnoASCwCeAGFrkOnAwL4EAAAAAElFTkSuQmCC",
+      "type": "command"
+    }
+  }
+}

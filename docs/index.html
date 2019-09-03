@@ -1,0 +1,893 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:16.0pt;line-height:107%'>KNN TensorFlow.js SharePoint
+Framework (SPFx) extension.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:16.0pt;
+line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>GitHub
+Repository: </span><a
+href="https://github.com/Ashot72/knn-tensorflowjs-spfx-extension"
+target="_blank">https://github.com/Ashot72/knn-tensorflowjs-spfx-extension</a></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;color:black'>Video link: </span><a
+href="https://vimeo.com/357600325" target="_blank">https://vimeo.com/357600325</a></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Application
+Description Page: </span><a
+href="https://ashot72.github.io/knn-tensorflowjs-spfx-extension/description/"
+target="_blank">https://ashot72.github.io/knn-tensorflowjs-spfx-extension/description/</a></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>KNN
+(k-nearest-neighbor algorithm, machine learning algorithm), is an approach to
+data classification that estimates how likely a data point is to be a member of
+one group or the other </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>depending on
+what group the data points nearest to it are in.</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>KNN
+regression model</span></i><span style='font-size:12.0pt;line-height:107%'>
+tries to predict the <b>value </b>of the output variable by using a local
+average.</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>KNN
+classification model</span></i><span style='font-size:12.0pt;line-height:107%'>
+attempts to predict the <b>class</b> to which the output variable belongs by
+computing the local probability.</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>TensorFlow.js</span></i><span
+style='font-size:12.0pt;line-height:107%'> is a library for machine learning in
+JavaScript. </span><a href="https://www.tensorflow.org/js" target="_blank"><span
+style='font-size:12.0pt;line-height:107%'>https://www.tensorflow.org/js</span></a></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>SharePoint
+Framework (SPFx) Extensions</span></i><span style='font-size:12.0pt;line-height:
+107%'> are client-side components that run inside the context of a SharePoint
+page. </span></p>
+
+<p class=MsoNormal><a
+href="https://docs.microsoft.com/en-us/sharepoint/dev/spfx/extensions/overview-extensions"
+target="_blank"><span style='font-size:12.0pt;line-height:107%'>https://docs.microsoft.com/en-us/sharepoint/dev/spfx/extensions/overview-extensions</span></a></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We should
+make future predictions based on historical data using KNN algorithm. Our first
+historical data is <i>diabetics</i> data. Data are usually in CSV format which
+is a simple file </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>format used
+to store tabular data, such as spreadsheet or database.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=989 height=596 id="Picture 1" src="index_files/image001.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 1</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>This is
+diabetes data which should be somehow imported to a SharePoint list.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1015 height=489 id="Picture 2" src="index_files/image002.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 2</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I am on <i>Add
+an App</i> page and searching the word <i>spread</i> to find <i>Import
+Spreadsheet </i>app in Chrome browser.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1039 height=536 id="Picture 4" src="index_files/image003.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 3</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Diabetes_data.csv</span></i><span
+style='font-size:12.0pt;line-height:107%'> is selected and it is time to import
+it.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1064 height=564 id="Picture 5" src="index_files/image004.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 4</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>You see
+ActiveX control error after clicking <i>Import</i> button. For that reason, I
+switch to Internet Explorer 11.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1109 height=564 id="Picture 6" src="index_files/image005.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 5</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Importing
+the file in IE11.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1120 height=618 id="Picture 7" src="index_files/image006.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 6</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I select <i>Range
+Type</i> to <i>Range of Cells</i> option.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1116 height=608 id="Picture 8" src="index_files/image007.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 7</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The last
+column is <i>I </i>and the last row is <i>769</i> in diabetes csv file.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1102 height=641 id="Picture 9" src="index_files/image008.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 8</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I append :<i>$I$769</i>
+in <i>Select Range</i> dropdown and click <i>Import</i> button.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1115 height=556 id="Picture 10" src="index_files/image009.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 9</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>It takes
+some time to import data. You can refresh the page from time to time to see the
+imported rows count.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1142 height=509 id="Picture 11" src="index_files/image010.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 10</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Diabetes</span></i><span
+style='font-size:12.0pt;line-height:107%'> data are successfully imported. I
+also installed KNN SPFx <i>Commans Sets</i> Extension which appears on the
+toolbar.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1142 height=556 id="Picture 12" src="index_files/image011.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 11</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The app
+works on any list but you can restrict it.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1146 height=505 id="Picture 13" src="index_files/image012.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 12</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I restricted
+the extension only on <i>knn</i> and <i>diabetes</i> lists by specifying <i>Lists</i>
+property and comma separated list names. The extension will be visible only on
+those lists.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Let</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s understand what <i>independent</i>
+and <i>dependent </i>variables are in machine learning before running our
+extension.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=805 height=563 id="Picture 14" src="index_files/image013.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 13</span></p>
+
+<p class=MsoNormal><b><i><span style='font-size:12.0pt;line-height:107%'>Independent</span></i></b><b><span
+style='font-size:12.0pt;line-height:107%'> <i>variables</i></span></b><span
+style='font-size:12.0pt;line-height:107%'> (also referred to as <b><i>Features</i></b>)
+are the input for a process that is being analyzes. Dependent variables are the
+output of the process.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In the
+picture above, the independent variables are the input of the purchasing
+process being analyzed. The result (whether a user purchased or not) is the</span></p>
+
+<p class=MsoNormal><b><i><span style='font-size:12.0pt;line-height:107%'>dependent
+</span></i></b><span style='font-size:12.0pt;line-height:107%'>variable<b><i> </i></b>(also
+referred to as <b><i>Label</i></b>). For example, using KNN algorithm we may
+predict whether the result (a user purchased or not) is 0 or 1 with <i>Age: 18 -
+35</i>,</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Education:
+Masters</span></i><span style='font-size:12.0pt;line-height:107%'>, <i>Income:
+High </i>and <i>Mariel Status: nan</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1148 height=504 id="Picture 16" src="index_files/image014.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 14</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Let</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s back to our <i>diabetes</i>
+dataset. Say, I want to know if a user with, 29.3 bmi is considered diabetic or
+not <i>based on our historical data</i><b>. </b>In this case our the single</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>independent
+variable</span></i><span style='font-size:12.0pt;line-height:107%'> or the <i>feature</i>
+is <i>bmi</i> and the <i>dependent variable</i> or <i>label</i> is <i>diabetes</i>.
+Before running analysis, we should understand if we solve classification or </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>regression
+problem (defined above). This is a <i>classification</i> problem as the label
+has distinct values. A <i>classification problem</i> has a discrete value as
+its output. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Note, that
+it is not necessary to have 0/1 or true/false output in classification case.
+The output can for example be colors such as, red, green, blue, yellow etc. some</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>discrete values.</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>bmi</span></i><span
+style='font-size:12.0pt;line-height:107%'> which stands for <i>Body Max Index </i>is
+a person</span><span style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s weight in kilograms (kg) divided by
+his or her height in meters squared. With <i>bmi</i> we define normal weight,
+overweight,</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>and obesity.<i>
+bmi</i> has some relation to type 2 diabetes. In general, a <i>bmi </i>of 18.5
+to 24.9 is considered a normal, or healthy, weight. A <i>bmi </i>that ranges
+from 25 to 29.9 is</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>considered
+overweight. And <i>bmi </i>of 30 or higher falls into obese category.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1175 height=478 id="Picture 17" src="index_files/image015.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 15</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I may think
+that just having a single feature <i>bmi </i>is not enough to predict whether a
+person is diabetics or not and introduce the second feature <i>glucose</i>. For
+example, I want predict if a person with 29.3 <i>bmi</i> </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>and 88 <i>glucose
+</i>is considered diabetes or not. <i>Blood glucose </i>is at the heart of
+diabetes. The reason we have been diagnosed with diabetes is because the level
+of blood glucose in our blood is higher </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>than it
+should be.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1184 height=581 id="Picture 18" src="index_files/image016.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 16</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>It is time
+to run the extension by clicking KNN.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1187 height=500 id="Picture 19" src="index_files/image017.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 17</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I switched
+to <i>Prediction</i> tab. In this page I select <i>features</i>, <i>label</i>
+and analysis type which is <i>Classification</i> in our case.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1180 height=540 id="Picture 20" src="index_files/image018.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 18</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>User can
+select multiple features.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1190 height=561 id="Picture 21" src="index_files/image019.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 19</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Only one
+label can be selected.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1206 height=560 id="Picture 22" src="index_files/image020.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 20</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I selected <i>features</i>,
+<i>label</i>, <i>classification</i> and specified values both for <i>bmi</i>
+and <i>glucose</i> and ready to predict the outcome. But there is <i>K</i> and
+what it is?</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>K in KNN is
+a parameter that refers to the number of nearest neighbors to include in the
+majority of the voting process.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>To
+understand what it means we should understand KNN algorithm steps at least </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>(more on
+description page </span><a
+href="https://ashot72.github.io/knn-tensorflowjs-spfx-extension/description/"
+target="_blank">https://ashot72.github.io/knn-tensorflowjs-spfx-extension/description/</a><span
+style='font-size:12.0pt;line-height:107%'>).</span></p>
+
+<p class=MsoNormal><a name="_Hlk18401804"><b><span style='font-size:12.0pt;
+line-height:107%'>Step 1 </span></b></a><span style='font-size:12.0pt;
+line-height:107%'>Load the data</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 2</span></b><span
+style='font-size:12.0pt;line-height:107%'> Initialize K to your chosen number
+of neighbors</span></p>
+
+<p class=MsoNormal><a name="_Hlk18347327"><b><span style='font-size:12.0pt;
+line-height:107%'>Step 3 </span></b></a><span style='font-size:12.0pt;
+line-height:107%'>Calculate the distance between the predicted point and the
+existing points</span></p>
+
+<p class=MsoNormal><a name="_Hlk18401960"><b><span style='font-size:12.0pt;
+line-height:107%'>Step 4 </span></b></a><span style='font-size:12.0pt;
+line-height:107%'>Sort the ordered collection of distances from smallest to
+largest (in ascending order) by the distances</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 5</span></b><span
+style='font-size:12.0pt;line-height:107%'> Pick the first K entries from the
+sorted collection</span></p>
+
+<p class=MsoNormal><a name="_Hlk18404639"><b><span style='font-size:12.0pt;
+line-height:107%'>Step 6</span></b></a><span style='font-size:12.0pt;
+line-height:107%'> Get the labels of the selected K entries</span></p>
+
+<p class=MsoNormal><a name="_Hlk18404935"><b><span style='font-size:12.0pt;
+line-height:107%'>Step 7 (regression)</span></b></a><span style='font-size:
+12.0pt;line-height:107%'> If regression, return the mean of the K labels</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 7
+(classification)</span></b><span style='font-size:12.0pt;line-height:107%'> if
+classification, return the <span style='color:#222222;background:white'>frequent
+class </span>of the K labels.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=753 height=563 id="Picture 23" src="index_files/image021.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 21</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In here we
+have unclassified data (in red) and all other data already classified (yellow
+and purple), each one with class (A or B).</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In case of K
+= 3 purple balls count is 2 and 1 for yellow and the frequent class is <i>Classes
+B</i>. But if we take K = 6 then the we have 2 purple balls and 4 yellow balls.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In this case
+frequent class is <i>Classes A</i>. So, how to choose K?</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1211 height=654 id="Picture 25" src="index_files/image022.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 22</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I am
+switching to the first tab which is the <i>Testing</i> tab. You can see that it
+is almost identical to the Prediction tab except for the <i>Testing Set</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We split our
+data into two separate sets. The number of records is 768. One set is called <b><i>testing
+set</i></b><i> </i>which is defined by a user and is 77 in this case. It is 10
+percent of the</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>total
+records by default and can be changed by a user. Another one is the <b><i>training
+set</i></b><i> </i>which is the total number of records minus testing set. In
+our case <b><i>training set </i></b>is 768 minus </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>77 equals <b>691</b>
+and the <b><i>training set</i></b> is <b>77</b>. Usually, before we split data
+set into a <i>testing set</i> and <i>training set,</i> we shuffle our data.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>For every
+single record inside of <i>testing set</i> we are going to run our
+k-nearest-neighbor algorithm using our training data.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1199 height=385 id="Picture 27" src="index_files/image023.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 23</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Suppose
+after splitting the data the line above belongs to testing set. We run the line
+against the training set and if the result is 1, we would say OK that is good
+we have a positive </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>result as
+the label is 1 as they match.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1199 height=469 id="Picture 28" src="index_files/image024.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 24</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>If we assume
+that this is another testing data and after the running it the result is 1, we
+will get a negative result as the label is 0. We will repeat the entire </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>process over
+and over until eventually exhaust all our training data (77 in our case). We
+will measure the accuracy and we can say pretty confidently </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>that if we
+make a change in K or if we introduce some new features to our data that could
+be an improvement.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1215 height=664 id="Picture 29" src="index_files/image025.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 25</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I ran
+analysis with a single feature <i>bmi</i>. I set <i>testing set</i> to 150
+which is 20% of the <i>training set</i>. A value returned by KNN is <i>Guess</i>
+and the <i>Actual</i> is the training set Label (diabetes) value. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>For example,
+in some cases we guessed 1, but the actual value was 0. Overall accuracy is
+66.67%. You will get a different accuracy result each time running analysis even
+without modifying any </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>settings on <i>Testing</i>
+tab. The reason is that we shuffle data just before running analysis and the
+previous <i>training set</i> is different form the next one.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1213 height=659 id="Picture 30" src="index_files/image026.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 26</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I ran the
+analysis with the same settings and got another accuracy. We calculate the accuracy
+percentage by dividing the correct numbers (correct when <i>guess</i> is equal to
+<i>label</i>) by <i>training set</i></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'> length and
+multiplying 100. For example, if the testing set is 150 and the correct numbers
+are 70 then the accuracy is 70 divided by 150 and multiplied by 100 equals 46.66%.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1223 height=707 id="Picture 31" src="index_files/image027.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 27</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We may run
+analysis multiple times by changing <i>K</i> value, or <i>testing set</i> or
+both to see if we get better results.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1215 height=733 id="Picture 32" src="index_files/image028.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 28</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Another
+option to improve the result could be adding a feature. I selected <i>glucose </i>feature
+and running analysis against two features.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1223 height=666 id="Picture 33" src="index_files/image029.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 29</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>You should
+recall the KNN steps we were talking about. The third step says; </span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 3 </span></b><span
+style='font-size:12.0pt;line-height:107%'>Calculate the distance between the
+predicted point and the existing points. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We will go
+much deeper on description page on the topic that I am going to talk now. We
+need some knowledge at this point to analyze diabetics data. You can see that <i>glucose</i>
+values are generally larger </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>than <i>bmi</i>
+values. When we calculate the distance (step 3) the feature with the larger
+scale will completely dominate the other. For that reason, we should <i>normalize</i>
+or <i>standardize</i> data</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>(normalize
+and standardize are used interchangeably). The goal of normalization is to make
+every datapoint have the same scale so each feature is equally important.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1209 height=643 id="Picture 35" src="index_files/image030.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 30</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>You may have
+noticed <i>Data Transformation</i> radio buttons on both <i>Testing</i> and <i>Prediction</i>
+tabs. The last tab is <i>Data transformation </i>tab.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1211 height=617 id="Picture 36" src="index_files/image031.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 31</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>There are
+two dropdowns on this page in order to select two features.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1213 height=683 id="Picture 37" src="index_files/image032.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 32</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I select <i>bmi
+</i>on <i>Feature (X-Axis)</i> and <i>glucose</i> on <i>Feature (Y-Axis)</i>
+and click <i>Run</i> button.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1222 height=665 id="Picture 40" src="index_files/image033.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 33</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>With <i>None</i>
+option we plot data without any modification. <i>glucose</i> range is from 20
+to 200 whereas <i>bmi</i> range is from 5 to 70; different scales.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1207 height=730 id="Picture 41" src="index_files/image034.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 34</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I selected <i>Min-Max
+Normalization</i> option and ran it one more time. <i>Min-Max normalization</i>
+is one of the most common ways to normalize data. For every feature, the
+minimum value of that</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>feature gets
+transformed into a 0, the maximum value gets transformed into a 1, and every
+other value gets transformed into a decimal between 0 and 1.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Min-max normalization:
+</span></b><span style='font-size:12.0pt;line-height:107%'>Guarantees all
+features will have the exact same scale but does not handle outliers well (will
+discuss outliers soon).</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1208 height=720 id="Picture 43" src="index_files/image035.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 35</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I am back to
+testing tab and testing it with <i>Min-Max Normalization.</i> Seems the
+accuracy is improved with <i>bmi</i> and <i>glucose</i> features, <i>k = 8</i>
+and <i>Min-Max Normalization</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1217 height=768 id="Picture 48" src="index_files/image036.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 36</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I am running
+the prediction with <i>bmi</i> 29.3 and <i>glucose</i> 88 and output is 0,
+which means that a person is not diabetics based on our prediction.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1205 height=419 id="Picture 45" src="index_files/image037.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 37</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I search
+data and could see that there is a line with <i>glucose</i> 88 and <i>bmi</i>
+29 which is close to our data and the result <i>diabetes</i> is 0. Seems our
+prediction was good.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1198 height=531 id="Picture 49" src="index_files/image038.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 38</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>This is our
+second data called <i>house_data </i>which is also imported from a csv file. We
+are going to be working with housing prices.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=676 height=604 id="Picture 52" src="index_files/image039.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 39</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Imagine for
+a second that we have list of data or some locations of properties or locations
+of houses. We know exactly where the houses sit on the map and we know exactly </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>how much
+those houses cost. On the map the yellow markers represent the location of a
+house with some known monetary value. What we want to do is to able to drop a
+point</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>somewhere on
+the map (e.g. a marker inside the red rectangle) and know the value of a new
+house when up for sale. This is a <i>regression</i> problem, not a <i>classification</i>
+one as we do not</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>deal with
+discrete values (e.g. colors reg, green, blue etc.). We are going to find a
+price of the house given its location, bedroom etc. count and associated
+variables. Price is a continues</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>value. It
+can be $200000 or $200200 or $20001 etc. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1162 height=823 id="Picture 53" src="index_files/image040.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 40</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We select <i>lat</i>
+and <i>long</i> features to predict a house price by picking up <i>regression</i>
+option. This time we are going to instead report our error percentage or kind
+of </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>our accuracy
+using the following formula.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Error =
+((Expected Value) - (Predicted Value))/Expected Value * 100</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Expected
+value is the value of <i>label</i> itself. We are going to subtract from it the
+predicted value and then divide by the expected value and multiply by 100.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>That will
+give us a percentage that we can say, OK we are like 10 percent off or 20
+percent off.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1178 height=737 id="Picture 54" src="index_files/image041.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 41</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Like <i>Classification</i>
+analysis, we can add multiple features, select different K values, T<i>esting Set
+</i>and analyze data. The features I added was <i>sqft_living</i> and <i>sqft_lot
+</i>ones.<i> </i>If you have a large property or</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>large lot
+you are probably going to end up paying more. <i>sqft_living</i> and <i>sqft_lot
+</i>could be valuable features to include in our analysis.</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></i></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1174 height=714 id="Picture 55" src="index_files/image042.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 42</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I switch to <i>Data
+Transformation </i>tab and plot <i>sqft_living</i> against <i>sqft_lot</i>. <i>sqft_lot
+</i>values are mostly way down to 400.000 but there are <i>sqft_lot of</i> 1.200.00
+and 1.600.000 which are way off the scale.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The extreme
+value 1.600.000 is called <i>outlier</i>.</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Outlier
+is an observation that diverges from an overall pattern on a sample.</span></i></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1197 height=667 id="Picture 61" src="index_files/image043.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 43</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I applied Min-Max
+Normalization but the extreme value is still way off the scale, because with <i>Min-max
+normalization</i> all features will have the exact same scale between 0 and 1.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1211 height=652 id="Picture 62" src="index_files/image044.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 44</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>If we have
+some point we want to predict, say, the green circle on the diagram, we are
+going to include that incredibly large square foot 1.600.000 <i>sqft_lot</i> in
+our analysis or in our final average value.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>This one
+1.600.000 <i>sqft_lot</i> out here might have like a ridiculous price
+associated with it. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1205 height=701 id="Picture 60" src="index_files/image045.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 45</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I selected <i>Z-Score
+Standardization</i> option. With <i>Standardization</i> the values are going to
+range from negative one standard deviation to one standard deviation with the
+average value failing</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>out around
+zero. The reason we are going to use standardization here is that it accounts
+for some very extreme values (<i>outliers</i>) much more nicely than
+normalization does.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>While data
+still looks squashed, notice that the points are now on roughly the same scale
+for both features. The only potential downside is that the features are not on
+the <i>exact same scale</i>.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Z-Score standardization:
+</span></b><span style='font-size:12.0pt;line-height:107%'>Handles outliers,
+but does not produce normalized data with the exact same scale.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1221 height=677 id="Picture 63" src="index_files/image046.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 46</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Now, you can
+test it with <i>Z-Score Standardization </i>option and find the optimal K
+value.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1226 height=620 id="Picture 65" src="index_files/image047.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 47</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>After find
+an optimal K value we are able to predict the price associated with <i>lat</i>,
+<i>long</i>, <i>sft_living</i> and <i>sqft_lot</i> which is $776050.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

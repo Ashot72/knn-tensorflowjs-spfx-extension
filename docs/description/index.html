@@ -1,0 +1,1343 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:16.0pt;line-height:107%'>KNN TensorFlow.js SharePoint
+Framework (SPFx) extension description</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><a name="_Hlk501991909"><span style='font-size:12.0pt;
+color:black'>GitHub Repository</span></a><span style='font-size:12.0pt;
+color:black'>:&nbsp;<a name="_Hlk501991899"></a> </span><a
+href="https://github.com/Ashot72/knn-tensorflowjs-spfx-extension"
+target="_blank">https://github.com/Ashot72/knn-tensorflowjs-spfx-extension</a></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;color:black'>Video link: </span><a
+href="https://vimeo.com/357600325" target="_blank">https://vimeo.com/357600325</a></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;color:black'>How to run application:&nbsp;
+</span><a href="https://ashot72.github.io/knn-tensorflowjs-spfx-extension/"
+target="_blank">https://ashot72.github.io/knn-tensorflowjs-spfx-extension/</a></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;color:black'>Please read
+&quot;How to run application&quot; first.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>KNN
+(k-nearest-neighbor algorithm, machine learning algorithm), is an approach to
+data classification that estimates how likely a data point is to be a member </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>of one group
+or the other depending on what group the data points nearest to it are in.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>KNN <i>is
+not trained</i>. We have to re-run the entire algorithm every single time that
+we want to make a prediction, because we have to recalculate all those
+distances.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We have to
+sort them all, take the top K records (will discuss all). So, it is one of the
+most time and space consuming classification method. Feature reduction</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>can reduce
+these problems.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>With other
+algorithms, we have a model that can be trained then use it to make a
+prediction very quickly. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Another
+difference between KNN and other algorithms is that it is really easy to
+understand KNN. It just makes sense. There are lot more math going on with
+other</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>algorithms and
+sometimes that math is not going to be a clear. For example, with <i>gradient
+descent algorithm</i> you are involved in <i>calculus</i>, should understand
+what <i>mean square error</i>,</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>learning rate</span></i><span
+style='font-size:12.0pt;line-height:107%'>, <i>coefficient of determination</i>
+etc. are which is not the case with KNN.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We are going
+to implement KNN with TensorFlow.js </span><a
+href="https://www.tensorflow.org/js" target="_blank"><span style='font-size:
+12.0pt;line-height:107%'>https://www.tensorflow.org/js</span></a></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>TensorFlow.js</span></i><span
+style='font-size:12.0pt;line-height:107%'> is an open source library that you
+can use to define, train, and run machine learning models entirely in browser,
+or in Node.js using JavaScript and a high-level API.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>As our app
+is a SharePoint (SPFx) extension we are going to run it in a browser. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Everything
+that we are going to be using in tensor flow is very similar to a very popular
+Python library called <i>NumPy </i>in the machine learning world. TensorFlow is
+built to have a very similar</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>API to <i>NumPy</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1228 height=669 id="Picture 1" src="index_files/image001.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 1</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>If go to
+TensorFlow.js API page </span><a href="https://js.tensorflow.org/api/latest/"
+target="_blank"><span style='font-size:12.0pt;line-height:107%'>https://js.tensorflow.org/api/latest/</span></a><span
+style='font-size:12.0pt;line-height:107%'> you will see tremendous amount of
+objects, functions and properties that belong to this library.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>There are 2
+sets of APIs. First one is low level linear algebra API that we are going to
+use in our app and the second one is higher level API that makes pretty easy to
+make some</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>more
+advanced machine learning algorithms.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Tensors are
+the core data structure of TensorFlow.js. They are a generalization of vectors
+and matrices to potentially higher dimensions.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=720 height=377 id="Picture 3" src="index_files/image002.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 2</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Here are
+one, two and three-dimensional tensors.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=801 height=517 id="Picture 4" src="index_files/image003.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 3</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I printed the
+1D tensor, its <i>size</i> and <i>shape</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>You can see
+the size of this tensor is 4.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>With <i>shape
+</i>we are essentially talking about a property of a tensor that describes how
+many elements there are in each individual dimension. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Our 1D tensor</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s <i>shape </i>is [4].</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=840 height=477 id="Picture 5" src="index_files/image004.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 4</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The <i>size</i>
+of the 2D tensor is 12 and the <i>shape</i> is [3, 4] as there are 3 <i>rows</i>
+and 4 <i>columns</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=872 height=479 id="Picture 7" src="index_files/image005.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 5</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The <i>size</i>
+of 3D tensor is 3, and the <i>shape</i> is [1,1,3].</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We use
+tensors to do basic arithmetic operations like adding, subtracting, dividing
+and so on. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=764 height=226 id="Picture 9" src="index_files/image006.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 6</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Here we add <i>first</i>
+tensor to <i>second</i> one. We take each value inside of <i>first</i> data
+tensor and add each value from <i>second</i> tensor. This is called <i>element
+wise operation</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We look at
+identical indices in both tensors and then do some operation on those two
+individual indices together, then take the result of that and put it into a new
+output tensor.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=955 height=301 id="Picture 11" src="index_files/image007.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 7</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Addition</span></i><span
+style='font-size:12.0pt;line-height:107%'>, <i>subtraction</i>, <i>division</i>
+and <i>multiplication</i> <i>element wise operations</i> with tensors.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=869 height=319 id="Picture 14" src="index_files/image008.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 8</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Here is <i>element
+wise operation</i> </span><span style='font-size:14.0pt;line-height:107%;
+color:black'>'</span><i><span style='font-size:12.0pt;line-height:107%'>addition</span></i><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'> on 2D tensors.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>There are
+other <i>element wise operations </i>such as less than greater than equal etc.,
+logical comparison <i>element wise operations</i> and so on.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=810 height=354 id="Picture 13" src="index_files/image009.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 9</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>If the tensors</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'> shapes do not match then we cannot
+do <i>element wise operations</i>. First tensor</span><span style='font-size:
+14.0pt;line-height:107%;color:black'>'</span><span style='font-size:12.0pt;
+line-height:107%'>s <i>shape</i> of [4] and the other one</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s [3].</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The second
+tensor does not have a corresponding value for the value 4 of the first tensor,
+so the result is undefined.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>But there
+are some situations that we are allowed to do <i>element wise operations</i>
+even the shapes of two tensors do not match.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=797 height=310 id="Picture 16" src="index_files/image010.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 10</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>You can see
+that first tensor</span><span style='font-size:14.0pt;line-height:107%;
+color:black'>'</span><span style='font-size:12.0pt;line-height:107%'>s <i>shape</i>
+is 3, the second tensor</span><span style='font-size:14.0pt;line-height:107%;
+color:black'>'</span><span style='font-size:12.0pt;line-height:107%'>s <i>shape</i>
+is 1 and we do <i>element wise operation</i> </span><span style='font-size:
+14.0pt;line-height:107%;color:black'>'</span><i><span style='font-size:12.0pt;
+line-height:107%'>addition</span></i><span style='font-size:14.0pt;line-height:
+107%;color:black'>'</span><span style='font-size:12.0pt;line-height:107%'>
+though their shapes do not match.</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Element
+wise operations with two tensors that have different shapes is the process
+referred to as broadcasting.</span></i></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In order to
+know if <i>broadcasting </i>works, we take shape of both tensors from right to
+left and if shapes are equal to each other,</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>or one shape
+has a value of 1 (or no shape for the second tensor) then we are allowed to do <i>broadcasting</i>
+operation.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=428 height=391 id="Picture 18" src="index_files/image011.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 11</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The shape of
+the first tensor is 3 and the second one is 1. Starting form right hand side
+and comparing to left (does not make sense in this case as both have </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>single
+values). If they are identical or one of them is equal to 1 then we are allowed
+to do broadcasting operations. In this case two shape values are not</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>equal but
+the second one has a value of one. So, <i>broadcasting</i> is allowed.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=640 height=331 id="Picture 20" src="index_files/image012.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 12</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Here is
+another example. Starting form right hand side and comparing to left. 3 is
+equal to 1, no but 1 is equal to 1 yes, so we are allowed to broadcasting so
+far.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We are
+moving to the next index, 2 is equal to 2, yes, they are, and we are allowed to
+do broadcasting.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=894 height=372 id="Picture 21" src="index_files/image013.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 13</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In this case
+we received a broadcasting error as 3 is not equal to 2.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=576 height=432 id="Picture 22" src="index_files/image014.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 14</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Here is a
+geometry of some examples visualized form a python book I was learning. It is
+explained on <i>NumPy </i>arrays but it works for TensorFlow as well.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1166 height=487 id="Picture 23" src="index_files/image015.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 15</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Testing third
+example with TensorFlow.js We got the same result with <i>broadcasting</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=778 height=555 id="Picture 31" src="index_files/image016.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 16</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Let</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s see how to contaminate two tensors.
+I formatted the output for you to see how it was concatenated. You might expect
+2 rows but the output shape</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>is [4,3],
+four rows and three columns not [2, 6], 2 rows and 6 columns. The concatenate
+method has a second argument that you can use to specify which way your tensors
+will be joined together.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=840 height=537 id="Picture 35" src="index_files/image017.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 17</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We can pass
+in the second integer argument to <i>concat</i> function either 0 or 1, because
+we have a two-dimensional tensor that we are with. The default argument for
+this is 0. We got the same </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>result that
+had before.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=833 height=531 id="Picture 34" src="index_files/image018.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 18</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>When we put
+in 1, we get a different result. 0 or 1 refer to the axis of concatenation.
+Number 0 means concatenate along the columns,1 along the rows.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=731 height=398 id="Picture 36" src="index_files/image019.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 19</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Let</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s look at <i>sum</i> function. By default,
+if we call <i>sum </i>with no arguments it is going to look at every value
+inside of the tensor and sum them all together and the result is 45.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We can also <i>sum</i>
+along an axis very similar to how we were doing contamination along an axis.
+With axis 0 we summed along each these rows [12, 15, 18]</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>and with 1
+along the columns [6, 15, 24].</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=764 height=422 id="Picture 37" src="index_files/image020.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 20</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Min</span></i><span
+style='font-size:12.0pt;line-height:107%'> function finding overall min value
+and values along the axis.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=858 height=448 id="Picture 40" src="index_files/image021.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 21</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>When we call
+the <i>sum</i> function it reduces the dimension of the output tensor. First
+tensor</span><span style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s dimension is [3, 3] and after the
+sum it is [3]. We went from</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>2D tensor to
+1D. To keep dimension we call first.sum(1, true) with true argument. The second
+dimension is referred to as the keep dimension argument.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>When we pass
+in a value of true and when the <i>sum</i> function runs, it is not going to
+reduce the dimensions of that input tensor. The dimension is [3, 1].</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We can get
+the same result with <i>expandDims </i>which increase the dimension of your
+tensor by 1. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>You may
+recall that we defined KNN steps on <i>how to run the application page</i> </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>(</span><a
+href="https://ashot72.github.io/knn-tensorflowjs-spfx-extension/"
+target="_blank">https://ashot72.github.io/knn-tensorflowjs-spfx-extension/</a><span
+style='font-size:12.0pt;line-height:107%'>) and the third step is</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 3 </span></b><span
+style='font-size:12.0pt;line-height:107%'>Calculate the distance between the
+predicted point and the existing points.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Let</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s see how to calculate the distance
+between two points </span><a
+href="https://www.mathsisfun.com/algebra/distance-2-points.html" target="_blank"><span
+style='font-size:12.0pt;line-height:107%'>https://www.mathsisfun.com/algebra/distance-2-points.html</span></a></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1182 height=724 id="Picture 41" src="index_files/image022.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 22</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Here is a
+quick and an easy explanation of the distance calculation.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1028 height=732 id="Picture 42" src="index_files/image023.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 23</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Here is the
+distance calculation formula.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1067 height=629 id="Picture 43" src="index_files/image024.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 24</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>These are
+examples of distance calculations.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=882 height=547 id="Picture 44" src="index_files/image025.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 25</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The formula
+works perfectly in 3 or more dimensions.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Now, it is
+time to explore our SharePoint (SPFx) extension.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1050 height=651 id="Picture 49" src="index_files/image026.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 26</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I am going
+to run the extension. We selected three features <i>bmi</i>, <i>glucose</i> and
+<i>insulin</i> and running them against the <i>testing set</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1007 height=630 id="Picture 47" src="index_files/image027.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 27</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In our case
+selected <i>features</i> are <i>bmi</i>, glucose and <i>insulin</i> and <i>datapoint</i>
+is a<i> testing set </i>data. I also highlighted TensorFlow chain operations
+that ware going to look into.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=788 height=471 id="Picture 51" src="index_files/image028.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 28</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>You see the <i>features</i>
+tensor where the first column is <i>bmi </i>values, <i>glucose, insulin </i>respectively.
+<i>dataPoint</i> tensor is a current <i>testing set</i> tensor. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=905 height=62 id="Picture 52" src="index_files/image029.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 29</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We are going
+to subtract our <i>datapoint features.sub(datapoint)</i> and we can make
+validation to make sure that those values actually make sense.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>114 minus
+178 equals -64. Actually, we started calculating the distance between <i>features</i>
+tensor and <i>datapoint</i> tensor and found the difference between every
+single </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>different
+data point.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=721 height=470 id="Picture 53" src="index_files/image030.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 30</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>What we need
+to do now is taking care of squaring those differences.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=708 height=70 id="Picture 54" src="index_files/image031.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 31</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>-3 squared
+is 9 and -64 squared is 4096. All those values have been squared successfully.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=722 height=419 id="Picture 55" src="index_files/image032.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 32</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Now, we need
+to add them together across each row so we pass argument 1 to sum function; sum(1).</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=784 height=63 id="Picture 56" src="index_files/image033.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 33</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>57.760006
+plus 1 plus 4096 is equal to 4154.7597656. Everything is going well so far.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=626 height=456 id="Picture 57" src="index_files/image034.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 34</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We need to
+take square root on each element at this point.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=766 height=71 id="Picture 58" src="index_files/image035.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 35</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Square root
+of 4154.759 is 64.45. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We finished
+the distance calculation.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 1 </span></b><span
+style='font-size:12.0pt;line-height:107%'>Load the data</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 2</span></b><span
+style='font-size:12.0pt;line-height:107%'> Initialize K to your chosen number
+of neighbors</span></p>
+
+<p class=MsoNormal><a name="_Hlk18347327"><b><span style='font-size:12.0pt;
+line-height:107%'>Step 3 </span></b></a><span style='font-size:12.0pt;
+line-height:107%'>Calculate the distance between the predicted point and the
+existing points</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Basically,
+we went through all those three steps.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 4 </span></b><span
+style='font-size:12.0pt;line-height:107%'>Sort the ordered collection of
+distances from smallest to largest (in ascending order) by the distances.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Next one is
+the sorting by the distances.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=727 height=481 id="Picture 59" src="index_files/image036.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 36</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Before
+sorting we concatenate <i>features</i> and <i>labels</i> to make sure that we
+maintain a relationship between them. In other words, indices on both our distances
+and labels should be lined up. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Before
+concatenation we call exandDims(1) function to expand the dimension from 1D to
+2D, from [691] to [691, 1].</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=798 height=432 id="Picture 60" src="index_files/image037.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 37</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>As you can
+see without <i>expandDims</i> we cannot concatenate as these things do not
+match. With <i>exapndDims </i>we have 691 rows and 1 column [691, 1]</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>which is
+going to match up very nicely with our labels 691 rows and 1 column [691, 1].</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=821 height=279 id="Picture 61" src="index_files/image038.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 38</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>After the
+concatenation the shape became [691, 2]. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Now, it is
+time to sort the tensor, but there is an issue. Tensors cannot be sorted. There
+is no <i>sort</i> function in <i>TensorFlow.js </i>API.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>There is no
+function in TensorFlow library that is going to look at all the values inside
+of a tensor.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=979 height=360 id="Picture 62" src="index_files/image039.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 39</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>For that
+reason we call <i>arraySync()</i> function to convert tensor data as a nested
+JavaScript array. After that we can apply JavaScript</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s vanilla <i>sort</i> function to
+sort data inside the nested array.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=780 height=485 id="Picture 63" src="index_files/image040.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 40</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We just
+sorted data by feature and finished with sorting.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 6</span></b><span
+style='font-size:12.0pt;line-height:107%'> Get the labels of the selected K
+entries.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1088 height=329 id="Picture 66" src="index_files/image041.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 41</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We take top
+K records using <i>slice</i>. This is the native JavaScript <i>slice</i> method
+not the TensorFlow</span><span style='font-size:14.0pt;line-height:107%;
+color:black'>'</span><span style='font-size:12.0pt;line-height:107%'>s version
+of slice because now we are working with a normal JavaScript array.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In our case
+K is 3 so we have three rows.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 7
+(regression)</span></b><span style='font-size:12.0pt;line-height:107%'> If
+regression, return the mean of the K labels.</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Step 7
+(classification)</span></b><span style='font-size:12.0pt;line-height:107%'> if
+classification, return the <span style='color:#222222;background:white'>frequent
+class </span>of the K labels.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=787 height=484 id="Picture 67" src="index_files/image042.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 42</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>After the
+sorting we have 2 cases, <i>Classification</i> and <i>Regression</i>. In case
+of classification (our diabetics case we are discussing now) we return the
+frequent class. Imagine that instead of three records, </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>three zeroes
+(Figure 5) we return 7 records with 0,1,1,0,0,1,1. The returned <i>classification</i>
+value is 1 in this case as we have four 1s and three 0s. The most frequent one
+is 1.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=742 height=442 id="Picture 68" src="index_files/image043.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 43</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>This part of
+<i>Lodash</i> code is taking the most frequent one by returning a single
+integer value.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In <i>Regression</i>
+case we calculate the mean (average) of top K labels. If the sorted labels are
+10, 45, 65 then the mean is 10 plus 45 plus 65 divided by 3 which is 120
+divided by 3 is equal 40.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>. <img
+border=0 width=627 height=415 id="Picture 69" src="index_files/image044.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 44</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>This part is
+taking care of <i>Regression</i> calculation.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=912 height=618 id="Picture 70" src="index_files/image045.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 45</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Let</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s run the analysis with <i>Min-max
+Normalization</i> this time.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=835 height=287 id="Picture 71" src="index_files/image046.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 46</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The goal of
+normalization is to make every datapoint have the same scale between 0 and 1 so
+each feature is equally important. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=651 height=285 id="Picture 72" src="index_files/image047.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 47</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Min-Max
+normalization </span></i><span style='font-size:12.0pt;line-height:107%'>formula
+is (value - min) / (max - min) which is implemented by means of TensorFlow</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s <i>min,</i> <i>max</i> and <i>sub</i>
+functions.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I wonder if
+we really get the right results with TensorFlow</span><span style='font-size:
+14.0pt;line-height:107%;color:black'>'</span><span style='font-size:12.0pt;
+line-height:107%'>s and plot accordingly.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1144 height=605 id="Picture 73" src="index_files/image048.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 48</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I created a <i>Person</i>
+list with four records specifying a person</span><span style='font-size:14.0pt;
+line-height:107%;color:black'>'</span><span style='font-size:12.0pt;line-height:
+107%'>s <i>Height</i>, <i>Weight</i> and <i>Age</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1001 height=662 id="Picture 74" src="index_files/image049.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 49</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I plot <i>Height</i>
+against <i>Wight </i>with Data Transform <i>None</i> <i>option </i>and can see
+that each height corresponds to its weight.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1007 height=624 id="Picture 75" src="index_files/image050.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 50</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>This one is
+with Min-Max option ranging from 0 to 1. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Now
+calculating with Min-Max formula.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1040 height=473 id="Picture 77" src="index_files/image051.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 51</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Min</span></i><span
+style='font-size:12.0pt;line-height:107%'> of <i>Height</i> is 48 and <i>Max</i>
+is 78. <i>Min</i> of <i>Weight</i> is 52 and <i>Max</i> is 77.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1057 height=653 id="Picture 78" src="index_files/image052.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 52</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Min-Max
+values are in right positions.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1146 height=578 id="Picture 79" src="index_files/image053.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 53</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In <i>House
+Data</i> scenario <i>Z-Score Standardization</i> was the option. With
+Standardization the values are going to range from negative one standard
+deviation to one standard deviation </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>with the
+average value failing out around zero. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=685 height=282 id="Picture 80" src="index_files/image054.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 54</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Here are <i>features</i>
+and <i>datapoint</i> tensor values after standardization.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=977 height=666 id="Picture 81" src="index_files/image055.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 55</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I plot <i>Height</i>
+and <i>Weight</i> with <i>Z-Score standardization</i> option.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=797 height=114 id="Picture 82" src="index_files/image056.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 56</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>It is the
+standardization formula where &#956; is the mean value of the feature and
+&#963; is the standard deviation of the feature.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Let</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s figure out what all this mean.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I am back to
+mathisfun.com </span><a
+href="https://www.mathsisfun.com/data/standard-deviation.html" target="_blank"><span
+style='font-size:12.0pt;line-height:107%'>https://www.mathsisfun.com/data/standard-deviation.html</span></a><span
+style='font-size:12.0pt;line-height:107%'> </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=937 height=679 id="Picture 83" src="index_files/image057.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 57</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>You see the
+steps to calculate mean and the standard deviation.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1100 height=657 id="Picture 84" src="index_files/image058.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 58</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>In this
+example the <i>mean (average)</i> of all dogs is 394. Calculating <i>mean</i>
+is the first step.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=931 height=698 id="Picture 85" src="index_files/image059.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 59</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Calculate
+the variance.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=957 height=577 id="Picture 86" src="index_files/image060.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 60</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>Standard
+deviation</span></i><span style='font-size:12.0pt;line-height:107%'> is 147. We
+mostly consider <i>standard deviation</i> instead of <i>variance</i>, as the <i>variance</i>
+is no longer in the same unit of</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>measurement
+as the original data. Taking the root of the <i>variance</i> means the <i>standard
+deviation</i> is restored to the original unit of measure and</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>therefore,
+much easier to measure.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=666 height=242 id="Picture 87" src="index_files/image061.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 61</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We use <i>tf.moments()
+</i>function along the axis 0 to calculates the mean and variance.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=639 height=217 id="Picture 88" src="index_files/image062.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 62</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Then we
+calculate <i>Z-Score standardization</i> with tensors based on its formula.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=987 height=653 id="Picture 89" src="index_files/image063.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 63</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>These are
+the points of <i>Height</i> against <i>Weight</i>. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=958 height=663 id="Picture 91" src="index_files/image064.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 64</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The points
+after <i>Z-Score standardization</i>. Let</span><span style='font-size:14.0pt;
+line-height:107%;color:black'>'</span><span style='font-size:12.0pt;line-height:
+107%'>s make sure that we got the right values after Z-Sore standardization
+with TensorFlow</span><span style='font-size:14.0pt;line-height:107%;
+color:black'>'</span><span style='font-size:12.0pt;line-height:107%'>s.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1025 height=495 id="Picture 92" src="index_files/image065.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 65</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>First, we
+should calculate both <i>mean</i> and <i>variance</i> then <i>standard division</i>
+of both <i>Height</i> and <i>Weight </i>then apply Z-Score standardization
+formula.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1240 height=702 id="Picture 94" src="index_files/image066.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 66</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>I calculated
+the <i>mean</i>, <i>variance</i>, <i>standard deviation</i> then <i>Z-Score
+standardization</i> and could see that the results correspond to the results on
+a diagram calculated with the TensorFlow’s function.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We already
+stated that when we calculate the distance between two features the feature
+with the larger scale will completely dominate the other. For that reason, we
+should <i>normalize</i> or <i>standardize</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Let</span><span
+style='font-size:14.0pt;line-height:107%;color:black'>'</span><span
+style='font-size:12.0pt;line-height:107%'>s see it in action.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1091 height=531 id="Picture 95" src="index_files/image067.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 67</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Suppose we
+have <i>height</i>, <i>weight</i> and T-shirt <i>size</i> of some customers and
+we need to predict the T-shirt size of a customer given only the <i>height</i>
+and <i>weight</i> information.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>So, <i>Height</i>
+and <i>Weight</i> are features (actually we are not going to predict the age,
+we just explore Z-Score standardization in here). By clicking D2 cell and
+activating it you will see</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>the distance
+formula in Excel. It calculates the distance between the <i>Prediction point
+Height </i>and <i>Height</i>, <i>Prediction point Weight</i> and <i>Weight</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1058 height=372 id="Picture 96" src="index_files/image068.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 68</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>This is the
+distance formula we already discussed.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=529 height=73 id="Picture 98" src="index_files/image069.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 69</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Calculating
+the distance for the first row and comparing it. This is the result calculated
+in our Excel file.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=761 height=437 id="Picture 100" src="index_files/image070.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 70</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We have all
+distances and can see that 1.41 is the lowest one the fifth one is 3.16 for the
+<i>height</i> 160 and <i>width</i> 64.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=962 height=511 id="Picture 101" src="index_files/image071.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 71</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We calculate
+the mean (average) both for <i>height</i> and <i>weight</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1095 height=544 id="Picture 104" src="index_files/image072.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 72</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Then we
+calculate the <i>Standard Deviation</i> both for height and weight.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1127 height=529 id="Picture 105" src="index_files/image073.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 73</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We calculate
+Z-Score standardization.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=731 height=543 id="Picture 106" src="index_files/image074.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 74</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We already
+discussed the Z-Score standardization formula.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1069 height=445 id="Picture 109" src="index_files/image075.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 75</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Our
+prediction points should be on the same scale.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=583 height=171 id="Picture 110" src="index_files/image076.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 76</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We
+calculated a new scaled prediction <i>height</i> and <i>weight</i>. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1077 height=452 id="Picture 111" src="index_files/image077.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 77</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>We calculate
+a new distance based on the scaled prediction points.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=874 height=427 id="Picture 112" src="index_files/image078.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 78</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Calculating
+the distance of the first <i>height</i> to make sure the formula functions
+properly.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1062 height=407 id="Picture 114" src="index_files/image079.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 79</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>As a result,
+you can see that after the standardization, 5<sup>th</sup> closet value got
+changed as height was dominating earlier before standardization. Hence, it is
+important</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>to standardize
+predictions before running K-nearest neighbor algorithm.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1171 height=582 id="Picture 115" src="index_files/image080.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 80</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>When you run
+the app, you will see a warning related to WebGL saying <i>WebGL is not
+supported on this device</i>.</span></p>
+
+<p class=MsoNormal><i><span style='font-size:12.0pt;line-height:107%'>TensorFlow.js
+</span></i><span style='font-size:12.0pt;line-height:107%'>id a framework that
+enables us to run a deep learning model in the browser easily and efficiently.
+Tensor manipulation requires a huge amount of</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>computation
+power. The defacto standard way for that is currently using accelerator such as
+GPU. GPU provides us with a large amount of parallelism so that we can</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>distribute
+the tensor calculation in the multiple threads. TensorFlow.js make it possible
+even in the web browser by using WebGL. WebGL is a standard API to use GPU</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>from web
+browser mainly for graphical processing. Thanks to WebGL, we can see the rich
+web contents smoothly. WebGL backend is 100x faster than the vanilla CPU</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>backend.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=1140 height=494 id="Picture 116" src="index_files/image081.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 81</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Go to Chrome
+settings and search <i>accel</i> and then enable hardware acceleration. After
+that the WebGL warning will disappear as your browser will start using hardware
+acceleration.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'><img
+border=0 width=925 height=562 id="Picture 117" src="index_files/image082.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>Figure 82</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The caveat
+when using WebGL backend is the need for explicit memory management.
+WebGLTextures, which is where Tensor data is</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>ultimately
+stored, are not automatically garbage collected by the browser. It is very
+common to chain multiple operations together in an </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>application.
+Holding a reference to all of the intermediate variables to dispose them can
+reduce code readability. To solve the problem,</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>TensorFlow.js
+team provides a <i>tf.tidy()</i> method which cleans up all <i>tf.Tensor</i> s
+that are not returned by a function after execution it, similar</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>to the way
+local variables are cleaned up when a function is executed.</span></p>
+
+</div>
+
+</body>
+
+</html>
