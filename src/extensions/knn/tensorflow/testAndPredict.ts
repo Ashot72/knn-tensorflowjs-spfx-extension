@@ -72,6 +72,22 @@ export default class TestAndPredict {
             return { features, testFeatures };
         })
 
+    private classififcation = op =>
+        chain(op)
+            .countBy(row => row[1])
+            .toPairs()
+            .sortBy(row => row[1])
+            .last()
+            .first()
+            .parseInt()
+            .value();
+
+    private regression = (op, k) =>
+        chain(op)
+            .reduce((acc, pair) => acc + pair[1], 0)
+            .divide(k)
+            .value();
+
     private knn(features, dataPoint, analysis: string, transform: string, k: number) {
 
         if (transform === DataTransformation.Standardise) {
@@ -92,21 +108,9 @@ export default class TestAndPredict {
             .sort((a, b) => a[0] - b[0])
             .slice(0, k);
 
-        if (analysis === Analysis.Classification) {
-            return chain(op)
-                .countBy(row => row[1])
-                .toPairs()
-                .sortBy(row => row[1])
-                .last()
-                .first()
-                .parseInt()
-                .value();
-        } else {
-            return chain(op)
-                .reduce((acc, pair) => acc + pair[1], 0)
-                .divide(k)
-                .value();
-        }
+        return analysis === Analysis.Classification
+            ? this.classififcation(op)
+            : this.regression(op, k);
     }
 
 

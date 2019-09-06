@@ -133,9 +133,10 @@ export default class Plot extends React.Component<ICommonProps, IPlotState> {
 
     private plot = () => {
         const { selectedFeatureX, selectedFeatureY, dataTransformation } = this.state;
+        const { data: dt } = this.props;
 
-        let featureX = columns(this.props.data, selectedFeatureX);
-        let featureY = columns(this.props.data, selectedFeatureY);
+        let featureX = columns(dt, selectedFeatureX);
+        let featureY = columns(dt, selectedFeatureY);
 
         if (dataTransformation !== DataTransformation.None) {
             const dataTrans = new DataTransform(featureX, featureY);

@@ -27,8 +27,10 @@ export default class KnnModal extends React.Component<IKnnModalProps, IKnnModalS
     }
 
     public async componentDidMount() {
-        const fields: Promise<any> = this.listService.getKnnListFields(this.props.listId);
-        const data: Promise<any> = this.listService.getKnnList(this.props.listId);
+        const { listId } = this.props;
+
+        const fields: Promise<any> = this.listService.getKnnListFields(listId);
+        const data: Promise<any> = this.listService.getKnnList(listId);
 
         return Promise.all([fields, data])
             .then(([f, d]) => this.setState({ fields: f, data: d }))
