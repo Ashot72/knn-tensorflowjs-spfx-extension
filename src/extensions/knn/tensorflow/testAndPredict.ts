@@ -80,13 +80,13 @@ export default class TestAndPredict {
             .last()
             .first()
             .parseInt()
-            .value();
+            .value()
 
     private regression = (op, k) =>
         chain(op)
             .reduce((acc, pair) => acc + pair[1], 0)
             .divide(k)
-            .value();
+            .value()
 
     private knn(features, dataPoint, analysis: string, transform: string, k: number) {
 
