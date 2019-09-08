@@ -126,10 +126,15 @@ export default class Prediction extends React.Component<ICommonProps, IPredictio
                     )}
                 </Stack>
                 <Stack horizontal horizontalAlign="center">
-                    <div style={{ fontSize: '16px' }}>{result !== '' && <span><b>{String.Format(strings.predResult, selectedLabel, result)}</b></span>}</div>
+                    <div style={{ fontSize: '16px' }}>
+                        {result !== '' && <span><b>{String.Format(strings.predResult, selectedLabel, result)}</b></span>}
+                    </div>
                 </Stack>
                 <Stack horizontal horizontalAlign="end">
-                    <PrimaryButton onClick={this.run} text={strings.run} style={{ marginTop: '5px', marginRight: '40px' }} />
+                    <PrimaryButton
+                        onClick={this.run}
+                        text={strings.run}
+                        style={{ marginTop: '5px', marginRight: '40px' }} />
                 </Stack>
             </div>
         );
@@ -191,17 +196,17 @@ export default class Prediction extends React.Component<ICommonProps, IPredictio
         this.state.inputs.forEach(({ value }) => testPoint.push(+value));
 
         const prediction = new TestAndPredict(features, labels);
-        prediction.predict([testPoint], analysis, dataTransformation, +this.state.k, (cb) =>
+        prediction.predict([testPoint], analysis, dataTransformation, +this.state.k, cb =>
             this.setState({ result: round(cb.prediction) }));
     }
 
-    private addTextField(key) {
+    private addTextField = key => {
         const inputs = [...this.state.inputs];
         inputs.push({ key, value: null });
         this.setState({ inputs });
     }
 
-    private removeTextField = (key) => {
+    private removeTextField = key => {
         const inputs = this.state.inputs.filter(i => i.key !== key);
         this.setState({ inputs });
     }

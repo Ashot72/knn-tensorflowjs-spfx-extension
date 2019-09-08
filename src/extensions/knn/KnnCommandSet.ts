@@ -16,11 +16,7 @@ export default class KnnCommandSet extends BaseListViewCommandSet<IKnnCommandSet
 
   @override
   public onInit(): Promise<void> {
-    return super.onInit().then(_ => {
-      sp.setup({
-        spfxContext: this.context
-      });
-    });
+    return super.onInit().then(_ => sp.setup({ spfxContext: this.context }));
   }
 
   @override
@@ -28,9 +24,10 @@ export default class KnnCommandSet extends BaseListViewCommandSet<IKnnCommandSet
     const command: Command = this.tryGetCommand('knn');
     if (command) {
       let allowed = true;
+      const { Lists } = this.properties;
 
-      if (typeof this.properties.Lists !== "undefined" && this.properties.Lists.length > 0) {
-        let lists = this.properties.Lists.split(',');
+      if (typeof Lists !== "undefined" && Lists.length > 0) {
+        let lists = Lists.split(',');
         allowed = lists.indexOf(this.context.pageContext.list.title) > -1;
       }
 

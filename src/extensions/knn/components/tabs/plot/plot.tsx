@@ -83,7 +83,10 @@ export default class Plot extends React.Component<ICommonProps, IPlotState> {
                 </Stack>
                 <div ref="plot" style={{ padding: '5px' }}></div>
                 <Stack horizontal horizontalAlign="end">
-                    <PrimaryButton onClick={this.run} text={strings.run} style={{ marginTop: '5px', marginRight: '40px' }} />
+                    <PrimaryButton
+                        onClick={this.run}
+                        text={strings.run}
+                        style={{ marginTop: '5px', marginRight: '40px' }} />
                 </Stack>
             </div>
         );
@@ -140,6 +143,7 @@ export default class Plot extends React.Component<ICommonProps, IPlotState> {
 
         if (dataTransformation !== DataTransformation.None) {
             const dataTrans = new DataTransform(featureX, featureY);
+
             const transData = (dataTransformation === DataTransformation.Normalize)
                 ? dataTrans.normalize()
                 : dataTrans.standardize();
@@ -157,13 +161,16 @@ export default class Plot extends React.Component<ICommonProps, IPlotState> {
         const data = { values: [norm_data(featureX, featureY)], series: [label] };
         const title = key => find(this.props.fields, (f: any) => f.key === key).text;
 
-        tfvis.render.scatterplot(this.refs.plot, data, {
-            xLabel: title(selectedFeatureX),
-            yLabel: title(selectedFeatureY),
-            height: 350,
-            width: 780,
-            fontSize: 13
-        });
+        tfvis.render.scatterplot(
+            this.refs.plot,
+            data,
+            {
+                xLabel: title(selectedFeatureX),
+                yLabel: title(selectedFeatureY),
+                height: 350,
+                width: 780,
+                fontSize: 13
+            });
 
     }
 }

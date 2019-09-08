@@ -227,7 +227,14 @@ export default class Test extends React.Component<ICommonProps, ITestState> {
     }
 
     private runAnalysis() {
-        const { selectedFeatures, selectedLabel, testingSet, analysis, results, dataTransformation } = this.state;
+        const {
+            selectedFeatures,
+            selectedLabel,
+            testingSet,
+            analysis,
+            results,
+            dataTransformation
+        } = this.state;
 
         const shuffled = shuffle(this.props.data);
 
@@ -246,7 +253,7 @@ export default class Test extends React.Component<ICommonProps, ITestState> {
         }
 
         const test = new TestAndPredict(features, labels, testFeatures, testLabels);
-        test.test(analysis, dataTransformation, +this.state.k, (cb) => {
+        test.test(analysis, dataTransformation, +this.state.k, cb => {
             const { analysis: anl, guess, label, formula } = cb;
 
             let message = '';
@@ -272,7 +279,8 @@ export default class Test extends React.Component<ICommonProps, ITestState> {
             : this.setState({ k: '' });
     }
 
-    private calcPercentage = (val: number, count: number) => this.setState({ percentage: +(val / +count * 100).toFixed(2) });
+    private calcPercentage = (val: number, count: number) =>
+        this.setState({ percentage: +(val / +count * 100).toFixed(2) })
 
     private closeMessageBar = (): void => this.clearErrors();
 
