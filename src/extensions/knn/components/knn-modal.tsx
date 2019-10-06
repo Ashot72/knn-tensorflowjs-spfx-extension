@@ -1,10 +1,14 @@
 import * as React from 'react';
 import * as strings from 'KnnCommandSetStrings';
 import styles from './knn-modal.module.scss';
-import { MessageBar, MessageBarType } from 'office-ui-fabric-react/lib/MessageBar';
-import { Icon } from 'office-ui-fabric-react/lib/Icon';
-import { Modal } from 'office-ui-fabric-react/lib/Modal';
-import { Pivot, PivotItem } from 'office-ui-fabric-react/lib/Pivot';
+import {
+    MessageBar,
+    MessageBarType,
+    Icon,
+    Modal,
+    Pivot,
+    PivotItem
+} from 'office-ui-fabric-react/lib';
 import IKnnModalProps from './knn-modal-props';
 import IKnnModalState from './knn-modal-state';
 import ListService from '../services/list-service';

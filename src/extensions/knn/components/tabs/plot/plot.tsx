@@ -3,11 +3,16 @@ import * as React from 'react';
 import * as strings from 'KnnCommandSetStrings';
 import { String } from 'typescript-string-operations';
 import { find } from 'lodash';
-import { MessageBar, MessageBarType } from 'office-ui-fabric-react/lib/MessageBar';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
-import { ChoiceGroup } from 'office-ui-fabric-react/lib/ChoiceGroup';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
-import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
+import {
+    MessageBar,
+    MessageBarType,
+    ChoiceGroup,
+    PrimaryButton,
+    Dropdown,
+    IDropdownStyles,
+    IDropdownOption,
+    Stack
+} from 'office-ui-fabric-react/lib';
 import ICommonProps from '../common-props';
 import IPlotState from './plot-state';
 import DataTransform from '../../../tensorflow/dataTransform';

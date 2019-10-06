@@ -3,12 +3,17 @@ import * as strings from 'KnnCommandSetStrings';
 import styles from './test.module.scss';
 import { String } from 'typescript-string-operations';
 import { find, slice, shuffle } from 'lodash';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
-import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { ChoiceGroup } from 'office-ui-fabric-react/lib/ChoiceGroup';
-import { MessageBar, MessageBarType } from 'office-ui-fabric-react/lib/MessageBar';
+import {
+    Stack,
+    PrimaryButton,
+    Dropdown,
+    IDropdownStyles,
+    IDropdownOption,
+    TextField,
+    ChoiceGroup,
+    MessageBar,
+    MessageBarType
+} from 'office-ui-fabric-react/lib';
 import ICommonProps from '../common-props';
 import ITestState from './test-state';
 import TestAndPredict from '../../../tensorflow/testAndPredict';
